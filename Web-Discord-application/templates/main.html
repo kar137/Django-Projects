@@ -1,23 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <!-- Metadata for character encoding and responsive design -->
+    <meta charset="UTF-8" />
+    <!-- Specifies the character encoding for the document -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Ensures the page is responsive on all devices -->
     <title>Document</title>
-</head>
-<body>
+    <!-- Title of the document -->
+  </head>
+  <body>
+    <!-- Include the navigation bar from a separate template -->
     {% include 'navbar.html' %}
 
+    <!-- Display any messages passed to the template (e.g., success or error notifications) -->
     {% if messages %}
     <ul class="messages">
-        {% for message in messages %}
-        <li>{{ message }}</li>
-        {% endfor %}
+      {% for message in messages %}
+      <li>{{ message }}</li>
+      <!-- Display each message -->
+      {% endfor %}
     </ul>
-{% endif %}
+    {% endif %}
 
-    {% block content %}
-
-    {% endblock %}
-</body>
+    <!-- Block to render dynamic content specific to each page -->
+    {% block content %} {% endblock %}
+  </body>
 </html>

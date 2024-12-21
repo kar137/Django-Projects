@@ -1,12 +1,18 @@
-{% extends 'main.html' %}
+{% extends 'main.html' %} {% block content %}
 
-{% block content %}
-
+<!-- Form for confirming the deletion of an object -->
 <form method="POST" action="">
-    {% csrf_token %}
-    <p>Are you sure you want to delete "{{obj}}"?</p>
-    <a href="{{Request.META.HTTP_REFERER}}">Go Back</a>
-    <input type="submit" value="confirm" />
+  {% csrf_token %}
+  <!-- Security token to protect against Cross-Site Request Forgery -->
+
+  <!-- Display a confirmation message with the object's name -->
+  <p>Are you sure you want to delete "{{obj}}"?</p>
+
+  <!-- Link to go back to the previous page without deleting -->
+  <a href="{{Request.META.HTTP_REFERER}}">Go Back</a>
+
+  <!-- Submit button to confirm the deletion -->
+  <input type="submit" value="confirm" />
 </form>
 
 {% endblock content %}

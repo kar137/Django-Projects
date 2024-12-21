@@ -1,13 +1,18 @@
-{% extends 'main.html' %}
+{% extends 'main.html' %} {% block content %}
 
-{% block content %}
-
+<!-- Container for the form -->
 <div>
-    <form method="POST" action="">
-        {% csrf_token %}
-        {{form.as_p}}
-        <input type="submit" value="Submit" />
-    </form>
+  <!-- Form for submitting data, using the POST method -->
+  <form method="POST" action="">
+    {% csrf_token %}
+    <!-- Security token to protect against Cross-Site Request Forgery -->
+
+    <!-- Render the form fields as paragraphs -->
+    {{form.as_p}}
+
+    <!-- Submit button to send the form data -->
+    <input type="submit" value="Submit" />
+  </form>
 </div>
 
 {% endblock content %}
