@@ -1,29 +1,24 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
   <head>
-    <!-- Metadata for character encoding and responsive design -->
     <meta charset="UTF-8" />
-    <!-- Specifies the character encoding for the document -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Ensures the page is responsive on all devices -->
-    <title>Document</title>
-    <!-- Title of the document -->
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}" />
+    <title>StudyBuddy - Find study partners around the world!</title>
   </head>
-  <body>
-    <!-- Include the navigation bar from a separate template -->
-    {% include 'navbar.html' %}
 
-    <!-- Display any messages passed to the template (e.g., success or error notifications) -->
-    {% if messages %}
+  <body>
+    {% include 'navbar.html' %} {% if messages %}
     <ul class="messages">
       {% for message in messages %}
       <li>{{ message }}</li>
-      <!-- Display each message -->
       {% endfor %}
     </ul>
-    {% endif %}
+    {% endif %} {% block content %} {% endblock %}
 
-    <!-- Block to render dynamic content specific to each page -->
-    {% block content %} {% endblock %}
+    <script src="{% static 'js/script.js' %}"></script>
   </body>
 </html>
