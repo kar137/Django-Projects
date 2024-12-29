@@ -1,39 +1,51 @@
 from django.db import models
-from django.contrib.auth.models import User 
+from django.contrib.auth.models import AbstractUser
 
-# Create your models here.
 
-# Model for Topics related to rooms
+class User(AbstractUser):
+    name = models.CharField(max_length=200, null=True)
+    email = models.EmailField(unique=True, null=True)
+    bio = models.TextField(null=True)
+
+    avatar = models.ImageField(null=True, default="avatar.svg")
+
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = []
+
+
 class Topic(models.Model):
-    name = models.CharField(max_length=200)  # Name of the topic, limited to 200 characters
+    name = models.CharField(max_length=200)
 
     def __str__(self):
-        return self.name  # Return the topic name as its string representation
+        return self.name
 
-# Model for Rooms where users can interact
+
 class Room(models.Model):
-    host = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)  # Host of the room (can be null if the host is deleted)
-    topic = models.ForeignKey(Topic, on_delete=models.SET_NULL, null=True)  # Associated topic for the room (can be null if the topic is deleted)
-    name = models.CharField(max_length=200)  # Name of the room, limited to 200 characters
-    description = models.TextField(null=True, blank=True)  # Optional description for the room
-    # participants = # Placeholder for participants functionality
-    updated = models.DateTimeField(auto_now=True)  # Timestamp for the last update (auto-updates on save)
-    created = models.DateTimeField(auto_now_add=True)  # Timestamp for when the room was created (auto-set on creation)
+    host = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    topic = models.ForeignKey(Topic, on_delete=models.SET_NULL, null=True)
+    name = models.CharField(max_length=200)
+    description = models.TextField(null=True, blank=True)
+    participants = models.ManyToManyField(
+        User, related_name='participants', blank=True)
+    updated = models.DateTimeField(auto_now=True)
+    created = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        ordering = ['-updated', '-created']  # Order rooms by most recently updated or created
+        ordering = ['-updated', '-created']
 
     def __str__(self):
-        return self.name  # Return the room name as its string representation
+        return self.name
 
-# Model for Messages within rooms
+
 class Message(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)  # User who sent the message (deletes message if user is deleted)
-    room = models.ForeignKey(Room, on_delete=models.CASCADE)  # Room where the message was sent (deletes message if room is deleted)
-    body = models.TextField()  # The text content of the message
-    updated = models.DateTimeField(auto_now=True)  # Timestamp for the last update (auto-updates on save)
-    created = models.DateTimeField(auto_now_add=True)  # Timestamp for when the message was created (auto-set on creation)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    room = models.ForeignKey(Room, on_delete=models.CASCADE)
+    body = models.TextField()
+    updated = models.DateTimeField(auto_now=True)
+    created = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-updated', '-created']
 
     def __str__(self):
-        return self.body[0:50]  # Return the first 50 characters of the message body as its string representation
-
+        return self.body[0:50]
