@@ -1,17 +1,25 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
 
 :root {
-  --color-main: #71c6dd;
-  --color-main-light: #e1f6fb;
-  --color-dark: #3f4156;
-  --color-dark-medium: #51546e;
-  --color-dark-light: #696d97;
-  --color-light: #e5e5e5;
-  --color-gray: #8b8b8b;
-  --color-light-gray: #b2bdbd;
-  --color-bg: #2d2d39;
-  --color-success: #5dd693;
-  --color-error: #fc4b0b;
+  --color-main: #916afa; /* Soft Purple for main accents (buttons, links) */
+  --color-main-light: #e1bee7; /* Light Lavender for hover states or lighter accents */
+
+  /* Dark Theme Colors */
+  --color-dark: #34495e; /* Deep charcoal-gray for the background */
+  --color-dark-medium: #2c2c2c; /* Slightly lighter charcoal for sidebars and secondary elements */
+  --color-dark-light: #383838; /* Light charcoal for borders, inputs, and subtle text */
+
+  /* Light Colors */
+  --color-light: #ffffff; /* Clean white for text and content */
+  --color-gray: #b0bec5; /* Soft, muted gray for non-essential text */
+  --color-light-gray: #cfd8dc; /* Light gray for background elements and borders */
+
+  /* Background Colors */
+  --color-bg: #1e1e2f; /* Deep dark background for the whole app */
+
+  /* Status Colors */
+  --color-success: #66bb6a; /* Fresh Green for success messages */
+  --color-error: #f44336; /* Bold Red for error messages */
 }
 
 /*========== base styles ==========*/
