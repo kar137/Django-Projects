@@ -1,14 +1,7 @@
 from django.db import models
+from django.core.validators import MinLengthValidator
 
 # Create your models here.
-
-class Post(models.Model):
-    Title = models.CharField(max_length=50)
-    Excerpt = models.CharField(max_length=50)
-    ImageName = models.CharField(max_length=100)
-    Date = models.DateField()
-    slug = models.SlugField()
-    content = models.CharField(max_length=1000)
 
 class Author(models.Model):
     first_name = models.CharField(max_length=50)
@@ -17,3 +10,15 @@ class Author(models.Model):
 
 class Tag(models.Model):
     caption = models.CharField(max_length=50)
+
+class Post(models.Model):
+    Title = models.CharField(max_length=150)
+    Excerpt = models.CharField(max_length=200)
+    ImageName = models.CharField(max_length=100)
+    Date = models.DateField(auto_now=True)
+    slug = models.SlugField(unique=True, db_index=True)
+    content = models.TextField(MinLengthValidator(10))
+
+    author = models.ForeignKey(Author, on_delete=models.SET_NULL, related_name="posts")
+
+    tag = models.ManyToManyField(Tag)
