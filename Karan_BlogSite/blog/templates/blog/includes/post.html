@@ -4,19 +4,20 @@
   <article class="post">
     <a href="{% url 'post-detail-page' post.slug %}">
       <img
-        src="{% static 'blog/images/'|add:post.image %}"
-        alt="{{post.title}}"
+        src="{% static 'blog/images/'|add:post.ImageName %}"
+        alt="{{post.Title}}"
         style="
           width: 120px;
           height: 120px;
           border-radius: 50%;
           object-fit: cover;
           display: block;
+          margin: 0 auto;
         "
       />
       <div>
-        <h3>{{ post.title }}</h3>
-        <p>{{ post.excerpt }}</p>
+        <h3>{{ post.Title }}</h3>
+        <p>{{ post.Excerpt }}</p>
       </div>
     </a>
   </article>
