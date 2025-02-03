@@ -15,9 +15,9 @@ Welcome to my **Django Projects** repository! This repository is a showcase of m
 
 ## 📂 Projects
 
-### 1. **Monthly Challenges App**
+### 1. **Personal Portfolio Website**
 
-An interactive web app where users can view, track, and complete monthly challenges.
+An interactive web app where I can post my coding journey and experiences.
 
 - **Features**: Dynamic content rendering, URL mapping, and user-friendly design.
 - **Tech Stack**: Django, Python, HTML, CSS.
@@ -28,13 +28,6 @@ A platform designed for students to connect, share notes, and collaborate.
 
 - **Features**: User authentication, profile creation, and messaging.
 - **Tech Stack**: Django, Python, JavaScript, HTML, CSS.
-
-### 3. **Empower Nepal**
-
-An AI-powered app providing legal and rights-based information tailored for Nepalese citizens.
-
-- **Features**: Informative pages, legal resources, and user interaction.
-- **Tech Stack**: Django, Python, AI integrations.
 
 ---
 
@@ -80,7 +73,7 @@ This repository is licensed under the [MIT License](LICENSE). Feel free to use t
 
 ## 📧 Contact
 
-If you have any questions or feedback, feel free to reach out to me at **bistak297@example.com** or connect with me on [LinkedIn](https://www.linkedin.com/in/karan-bista-6200242a1?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app).
+If you have any questions or feedback, feel free to reach out to me at **bistak297@gmail.com** or connect with me on [LinkedIn](https://www.linkedin.com/in/karan-bista-6200242a1?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app).
 
 ---
 
